@@ -1,26 +1,21 @@
 import React from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {toggleImportanceOf,  createNote} from "./reducers/noteReducer"
+import { useSelector, useDispatch } from "react-redux";
+import { toggleImportanceOf, createNote } from "./reducers/noteReducer";
 
 function App() {
-
-  const dispatch = useDispatch()
-  const notes = useSelector(state => state)
+  const dispatch = useDispatch();
+  const notes = useSelector((state) => state);
 
   const addNote = (event) => {
-   event.preventDefault();  
-   const content = event.target.note.value
-    event.target.note.value = ''
-    dispatch(createNote(content)
-      )
+    event.preventDefault();
+    const content = event.target.note.value;
+    event.target.note.value = "";
+    dispatch(createNote(content));
+  };
 
-
-
-  }
-
-  const toggleImportance=(id)=>{
-    dispatch(toggleImportanceOf(id))
-  }
+  const toggleImportance = (id) => {
+    dispatch(toggleImportanceOf(id));
+  };
 
   return (
     <div>
@@ -29,9 +24,18 @@ function App() {
         <button type="submit">add</button>
       </form>
       <ul>
-        {notes.map(note =>(<li key={note.id} onClick={()=>{toggleImportance(note.id)}}> {note.content} <strong>{note.important?"important":null}</strong></li>)
-          
-        )}
+        {notes.map((note) => (
+          <li
+            key={note.id}
+            onClick={() => {
+              toggleImportance(note.id);
+            }}
+          >
+            {" "}
+            {note.content}{" "}
+            <strong>{note.important ? "important" : null}</strong>
+          </li>
+        ))}
       </ul>
     </div>
   );
