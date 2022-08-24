@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 // import { createStore, combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
-import noteReducer from "./reducers/noteReducer";
+// import { configureStore } from "@reduxjs/toolkit";
+// import noteReducer from "./reducers/noteReducer";
 import { Provider } from "react-redux";
-import filterReducer from "./reducers/filterReducer";
+// import filterReducer from "./reducers/filterReducer";
+import store from "./store";
 
 // const store = createStore(noteReducer)
 
@@ -17,12 +18,12 @@ import filterReducer from "./reducers/filterReducer";
 // const store = createStore(reducers);
 
 // BY USING CONFIGURE STATE OF REDUX TOOL KIT
-const store = configureStore({
-  reducer: {
-    notes: noteReducer,
-    filter: filterReducer,
-  },
-});
+// const store = configureStore({
+//   reducer: {
+//     notes: noteReducer,
+//     filter: filterReducer,
+//   },
+// });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -45,9 +45,6 @@ const noteSlice = createSlice({
   name: "notes",
   initialState: [],
   reducers: {
-    createNote(state, action) {
-      return [...state, action.payload];
-    },
     toggleImportanceOf(state, action) {
       const id = action.payload;
       const noteToChange = state.find((n) => n.id === id);
@@ -57,11 +54,9 @@ const noteSlice = createSlice({
       };
       return state.map((note) => (note.id !== id ? note : changedNote));
     },
-
     appendNote(state, action) {
       state.push(action.payload);
     },
-
     setNotes(state, action) {
       return action.payload;
     },
